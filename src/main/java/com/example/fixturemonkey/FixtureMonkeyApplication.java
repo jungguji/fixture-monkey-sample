@@ -1,4 +1,4 @@
-package com.example.fixture_monkey;
+package com.example.fixturemonkey;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

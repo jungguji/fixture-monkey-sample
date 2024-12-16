@@ -1,4 +1,4 @@
-package com.example.fixture_monkey;
+package com.example.fixturemonkey;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
