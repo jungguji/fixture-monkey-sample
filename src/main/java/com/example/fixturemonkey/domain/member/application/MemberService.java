@@ -39,4 +39,8 @@ public class MemberService {
         entity = memberRepository.save(entity);
         return Member.of(entity);
     }
+
+    public boolean hasAdminRole(long memberId) {
+        return memberId < 100;
+    }
 }

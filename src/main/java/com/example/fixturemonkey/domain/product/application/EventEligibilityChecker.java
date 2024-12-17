@@ -14,7 +14,7 @@ import java.util.Arrays;
 @RequiredArgsConstructor
 public class EventEligibilityChecker {
 
-    private final MemberService memberRoleService;
+    private final MemberService memberService;
 
     @Value("${event.vip.member.ids}")
     private String vipMemberIds;
@@ -36,7 +36,7 @@ public class EventEligibilityChecker {
      * @param eventEndTime 이벤트 종료 시간
      * @return 참여 가능 여부
      */
-    public boolean canParticipate(int memberId, LocalDateTime eventStartTime, LocalDateTime eventEndTime) {
+    public boolean canParticipate(long memberId, LocalDateTime eventStartTime, LocalDateTime eventEndTime) {
         OffsetDateTime currentTime = OffsetDateTime.now();
         boolean isEligible = true;
 
@@ -52,15 +52,15 @@ public class EventEligibilityChecker {
         return isEligible;
     }
 
-    private boolean checkVipMember(int memberId) {
+    private boolean checkVipMember(long memberId) {
         return Arrays.stream(vipMemberIds.split(","))
                 .map(String::trim)
                 .map(Integer::parseInt)
                 .anyMatch(id -> id == memberId);
     }
 
-    private boolean checkAdminMember(int memberId) {
-        return memberRoleService.hasAdminRole(memberId);
+    private boolean checkAdminMember(long memberId) {
+        return memberService.hasAdminRole(memberId);
     }
 
     private boolean checkOutsideEventPeriod(OffsetDateTime currentTime, LocalDateTime eventStartTime, LocalDateTime eventEndTime) {
@@ -69,4 +69,3 @@ public class EventEligibilityChecker {
         return currentTime.isBefore(eventStart) || currentTime.isAfter(eventEnd);
     }
 }
-
