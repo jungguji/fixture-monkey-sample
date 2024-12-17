@@ -1,5 +1,6 @@
-package com.example.fixturemonkey.domain.member;
+package com.example.fixturemonkey.domain.member.domain;
 
+import com.example.fixturemonkey.domain.member.infrastructure.MemberEntity;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 
@@ -26,5 +27,17 @@ public class Member {
         } else {
             return "시니어";
         }
+    }
+
+    public static Member of(MemberEntity entity) {
+        return new Member(
+                entity.getId(),
+                entity.getName(),
+                entity.getEmail(),
+                entity.getPhoneNumber(),
+                entity.getAge(),
+                entity.isVerified(),
+                entity.getCreatedAt()
+        );
     }
 }

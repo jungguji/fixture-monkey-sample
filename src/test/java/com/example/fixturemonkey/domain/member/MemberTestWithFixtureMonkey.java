@@ -1,5 +1,6 @@
 package com.example.fixturemonkey.domain.member;
 
+import com.example.fixturemonkey.domain.member.domain.Member;
 import com.navercorp.fixturemonkey.FixtureMonkey;
 import com.navercorp.fixturemonkey.api.introspector.PriorityConstructorArbitraryIntrospector;
 import org.junit.jupiter.api.BeforeEach;

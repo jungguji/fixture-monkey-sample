@@ -1,7 +1,6 @@
 package com.example.fixturemonkey.domain.member;
 
-import static org.junit.jupiter.api.Assertions.*;
-
+import com.example.fixturemonkey.domain.member.domain.Member;
 import org.junit.jupiter.api.Test;
 import java.time.LocalDateTime;
 
